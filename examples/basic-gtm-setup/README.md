@@ -4,7 +4,7 @@ Complete example of implementing Gubagoo and XTime tracking scripts in Google Ta
 
 ## 📋 Overview
 
-This example shows the most common implementation: using Google Tag Manager to deploy tracking scripts across a dealership website with both Gubagoo payment calculators and XTime service scheduling.
+This example shows the most common implementation: using Google Tag Manager to deploy tracking scripts across a dealership website with both Gubagoo and XTime service scheduling.
 
 ## 🎯 What You'll Accomplish
 
@@ -66,7 +66,7 @@ examples/basic-gtm-setup/
 
 ### Step 2: Create Custom Variables (Optional)
 
-For easier event tracking, create these built-in variables:
+For easier event tracking, create these variables:
 
 #### Data Layer Variables:
 - `gubagoo_vin` → `{{gubagoo_vin}}`
@@ -126,7 +126,7 @@ For easier event tracking, create these built-in variables:
 
 2. **Test Gubagoo Tracking**:
    - Go to vehicle detail page with payment calculator
-   - Interact with the calculator widget
+   - Interact with the Gubagoo widget
    - Fill out customer contact form
    - Check for these events in GTM Preview:
      - `gubagoo_calculator_loaded`
@@ -240,9 +240,9 @@ if (event.origin.includes('your-custom-gubagoo-domain.com')) {
 ### Reporting Benefits
 
 With this implementation, you'll be able to report on:
-- **Lead Attribution**: Which marketing channels drive calculator usage
+- **Lead Attribution**: Which marketing channels drive widget usage
 - **Customer Journey**: Path from browse → calculate → lead
-- **Conversion Rates**: Calculator interactions to actual leads
+- **Conversion Rates**: Widget interactions to actual leads
 - **Geographic Analysis**: Lead generation by customer location
 - **Vehicle Interest**: Most popular vehicles and price ranges
 - **Service Demand**: Appointment booking patterns and preferences
