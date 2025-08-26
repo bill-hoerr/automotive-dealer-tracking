@@ -2,6 +2,16 @@
 
 Enhanced tracking solutions for automotive dealership third-party widgets.
 
+## ⚠️ Legal Disclaimer
+
+These scripts are provided for educational and business purposes only. Users are solely responsible for:
+- Ensuring compliance with applicable privacy laws and regulations
+- Obtaining proper customer consent before implementation
+- Following vendor terms of service agreements
+- Testing thoroughly before production deployment
+
+This project is not affiliated with or endorsed by Gubagoo, XTime, or any mentioned vendors.
+
 ## 🎯 What This Solves
 
 Third-party vendors like Gubagoo and XTime send limited data to your analytics. These scripts capture the full customer journey and interaction data that you need for:
