@@ -135,9 +135,6 @@ gtag('event', 'generate_lead', {
 });
 ```
 
-### Segment Integration
-The script automatically tracks Segment events if present on the page.
-
 ## 🤝 Contributing
 
 Found a bug or have an improvement? Open an issue or submit a pull request!

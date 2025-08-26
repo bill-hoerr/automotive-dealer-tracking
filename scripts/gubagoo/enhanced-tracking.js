@@ -73,25 +73,7 @@
     });
   }
   
-  // 3. Track Segment analytics calls (if accessible)
-  function trackSegmentEvents() {
-    if (window.analytics && window.analytics.track) {
-      var originalTrack = window.analytics.track;
-      window.analytics.track = function(event, properties) {
-        // Check if it's a Gubagoo-related event
-        if (event && (event.includes('gubagoo') || event.includes('payment') || event.includes('calculator'))) {
-          dataLayer.push({
-            'event': 'gubagoo_segment_event',
-            'segment_event_name': event,
-            'segment_properties': properties || {}
-          });
-        }
-        return originalTrack.apply(this, arguments);
-      };
-    }
-  }
-  
-  // 4. Monitor for form submissions via network requests
+  // 3. Monitor for form submissions via network requests
   function trackNetworkRequests() {
     if (window.fetch) {
       var originalFetch = window.fetch;
@@ -109,7 +91,7 @@
     }
   }
   
-  // 5. Track postMessage events (cross-domain communication) - ENHANCED
+  // 4. Track postMessage events (cross-domain communication) - ENHANCED
   function trackPostMessages() {
     window.addEventListener('message', function(event) {
       if (event.origin && event.origin.includes('gubagoo.io')) {
@@ -235,7 +217,6 @@
     try {
       trackGubagooLoad();
       trackIframeChanges();
-      trackSegmentEvents();
       trackNetworkRequests();
       trackPostMessages();
       
