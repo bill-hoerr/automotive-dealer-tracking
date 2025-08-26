@@ -2,6 +2,15 @@
 
 Step-by-step guide for implementing enhanced tracking scripts for automotive dealership third-party widgets.
 
+## ⚚️ Implementation Warning
+
+Before deploying these scripts:
+- Review your privacy policy with legal counsel
+- Verify compliance with local privacy regulations
+- Check current vendor terms of service
+- Test thoroughly in non-production environment
+- Document your implementation for compliance audits
+
 ## 🎯 Before You Start
 
 ### Prerequisites

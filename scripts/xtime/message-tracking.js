@@ -1,3 +1,6 @@
+// DISCLAIMER: This script is provided "as-is" for automotive dealerships
+// to track their own customers. Ensure compliance with privacy laws and
+// vendor terms of service before implementation.
 // XTime Enhanced Message Tracking Script
 // Captures postMessage communications from XTime service scheduling widgets
 

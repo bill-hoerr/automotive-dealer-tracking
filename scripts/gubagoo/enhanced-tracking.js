@@ -1,3 +1,6 @@
+// DISCLAIMER: This script is provided "as-is" for automotive dealerships
+// to track their own customers. Ensure compliance with privacy laws and
+// vendor terms of service before implementation.
 // GTM Custom HTML Tag: Enhanced Gubagoo Event Tracking
 // Trigger: All Pages
 

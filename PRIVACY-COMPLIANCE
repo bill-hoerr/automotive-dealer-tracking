@@ -2,6 +2,15 @@
 
 Important legal considerations and privacy compliance requirements for automotive dealership tracking scripts.
 
+## ⚠️ CRITICAL LEGAL DISCLAIMER
+
+**THIS IS NOT LEGAL ADVICE.** This guide provides general information only. Privacy laws vary significantly by jurisdiction and change frequently. You MUST consult qualified legal counsel familiar with:
+- Your specific jurisdiction's privacy laws
+- Automotive industry regulations in your area  
+- Current vendor terms of service agreements
+
+The authors assume no liability for legal compliance issues arising from use of these scripts.
+
 ## ⚖️ Legal Context
 
 These tracking scripts are designed specifically for **automotive dealerships** tracking **their own customers** on **their own websites**. This creates a fundamentally different legal context than general web tracking.
