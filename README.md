@@ -1,4 +1,4 @@
-# 🚗 Automotive Dealer Tracking Scripts
+# Automotive Dealer Tracking Scripts
 
 Enhanced tracking solutions for automotive dealership third-party widgets.
 
