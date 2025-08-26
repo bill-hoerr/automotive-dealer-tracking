@@ -48,80 +48,96 @@ Add the script before your closing `</body>` tag:
 <script>
 // Paste the enhanced-tracking.js content here
 </script>
+```
 
-### 🔧 Configuration
+## 🔧 Configuration
+
 The script works out-of-the-box but can be customized:
-dataLayer Name
-By default pushes to dataLayer. To use a different name:
-javascript// Replace 'dataLayer.push' with your dataLayer name
+
+### dataLayer Name
+By default pushes to `dataLayer`. To use a different name:
+
+```javascript
+// Replace 'dataLayer.push' with your dataLayer name
 window.yourDataLayer = window.yourDataLayer || [];
 window.yourDataLayer.push(eventData);
-Event Prefix
+```
+
+### Event Prefix
 Change the event prefix by modifying the event names:
-javascript// Change from 'gubagoo_' to your preferred prefix
+
+```javascript
+// Change from 'gubagoo_' to your preferred prefix
 'event': 'your_prefix_calculator_loaded'
+```
 
-### 🧪 Testing
-GTM Preview Mode
+## 🧪 Testing
 
-Enable GTM Preview mode
-Navigate to a page with Gubagoo widget
-Interact with the payment calculator
-Check the dataLayer tab for events
+### GTM Preview Mode
+1. Enable GTM Preview mode
+2. Navigate to a page with Gubagoo widget
+3. Interact with the payment calculator
+4. Check the dataLayer tab for events
 
-Console Debugging
+### Console Debugging
 The script logs initialization status:
+```
 [GTM] Enhanced Gubagoo tracking initialized
-Expected Event Flow
+```
 
-Page loads → gubagoo_calculator_loaded
-User starts calculation → gubagoo_calculator_started
-User provides contact info → generate_lead
-User completes process → gubagoo_order_completed
+### Expected Event Flow
+1. Page loads → `gubagoo_calculator_loaded`
+2. User starts calculation → `gubagoo_calculator_started`  
+3. User provides contact info → `generate_lead`
+4. User completes process → `gubagoo_order_completed`
 
-### ⚖️ Privacy Considerations
+## ⚖️ Privacy Considerations
+
 This script captures personally identifiable information (PII) including:
+- Customer email addresses and phone numbers
+- Names and location data
+- Financial information (credit scores)
 
-Customer email addresses and phone numbers
-Names and location data
-Financial information (credit scores)
+**Requirements:**
+- Ensure your privacy policy covers enhanced tracking
+- Obtain appropriate customer consent
+- Comply with GDPR, CCPA, and other applicable regulations
+- Only use on websites where you own the customer relationship
 
-Requirements:
+## 🐛 Troubleshooting
 
-Ensure your privacy policy covers enhanced tracking
-Obtain appropriate customer consent
-Comply with GDPR, CCPA, and other applicable regulations
-Only use on websites where you own the customer relationship
+### No Events Firing
+- Check that Gubagoo widget is loading properly
+- Verify GTM tag is firing on correct pages
+- Check browser console for JavaScript errors
 
-### 🐛 Troubleshooting
-No Events Firing
+### Missing Customer Data
+- Customer must provide email/phone for lead events
+- Some data only available at specific interaction points
+- Check the `gubagoo_postmessage` events for raw data
 
-Check that Gubagoo widget is loading properly
-Verify GTM tag is firing on correct pages
-Check browser console for JavaScript errors
+### Duplicate Events
+- Script includes basic deduplication
+- Multiple page loads may cause reinitialization
+- Consider adding additional deduplication logic if needed
 
-Missing Customer Data
+## 📈 Analytics Integration
 
-Customer must provide email/phone for lead events
-Some data only available at specific interaction points
-Check the gubagoo_postmessage events for raw data
-
-Duplicate Events
-
-Script includes basic deduplication
-Multiple page loads may cause reinitialization
-Consider adding additional deduplication logic if needed
-
-### 📈 Analytics Integration
-Google Analytics 4
+### Google Analytics 4
 Create custom events in GA4 based on dataLayer events:
-javascript// Example GA4 event configuration
+
+```javascript
+// Example GA4 event configuration
 gtag('event', 'generate_lead', {
   'lead_source': 'gubagoo',
   'vehicle_category': '{{vehicle_category}}',
   'lead_value': {{lead_value}}
 });
-Segment Integration
+```
+
+### Segment Integration
 The script automatically tracks Segment events if present on the page.
-🤝 Contributing
+
+## 🤝 Contributing
+
 Found a bug or have an improvement? Open an issue or submit a pull request!

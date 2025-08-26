@@ -76,168 +76,178 @@ If not using Google Tag Manager:
 <script>
 // Paste xtime/message-tracking.js content here  
 </script>
-Step 4: Verify Implementation
-Using GTM Preview Mode:
+```
 
-Enable Preview mode in GTM
-Navigate to pages with widgets
-Interact with payment calculators/schedulers
-Check Tags, Triggers, Variables, and Data Layer tabs
+### Step 4: Verify Implementation
 
-Using Browser Console:
+#### Using GTM Preview Mode:
+1. Enable Preview mode in GTM
+2. Navigate to pages with widgets
+3. Interact with payment calculators/schedulers
+4. Check Tags, Triggers, Variables, and Data Layer tabs
 
-Open Developer Tools (F12)
-Go to Console tab
-Look for initialization messages:
+#### Using Browser Console:
+1. Open Developer Tools (F12)
+2. Go to Console tab
+3. Look for initialization messages:
+   - `[GTM] Enhanced Gubagoo tracking initialized`
+4. Check for any JavaScript errors
 
-[GTM] Enhanced Gubagoo tracking initialized
+#### Expected Events:
+- **Gubagoo**: `gubagoo_calculator_loaded`, `generate_lead`
+- **XTime**: `xtime_message` with step progression
 
+## 🔧 Configuration Options
 
-Check for any JavaScript errors
+### Custom Data Layer Names
 
-Expected Events:
-
-Gubagoo: gubagoo_calculator_loaded, generate_lead
-XTime: xtime_message with step progression
-
-🔧 Configuration Options
-Custom Data Layer Names
 If your site uses a different dataLayer name:
-javascript// Replace this:
+
+```javascript
+// Replace this:
 dataLayer.push(eventData);
 
 // With this:
 window.yourCustomDataLayer = window.yourCustomDataLayer || [];
 window.yourCustomDataLayer.push(eventData);
-Event Name Prefixes
+```
+
+### Event Name Prefixes
+
 To avoid naming conflicts:
-javascript// Change event names from:
+
+```javascript
+// Change event names from:
 'event': 'gubagoo_calculator_loaded'
 
 // To your prefix:
 'event': 'dealership_gubagoo_calculator_loaded'
-Origin Restrictions
+```
+
+### Origin Restrictions
+
 For XTime, add your specific domains:
-javascriptvar ALLOWED_ORIGINS = [
+
+```javascript
+var ALLOWED_ORIGINS = [
   "https://consumer8x5.xtime.com",
   "https://consumer.xtime.com",
   "https://your-custom-domain.xtime.com"
 ];
-📊 Analytics Integration
-Google Analytics 4
+```
+
+## 📊 Analytics Integration
+
+### Google Analytics 4
+
 Create custom events in GA4 based on captured data:
 
-Set Up Custom Events:
+1. **Set Up Custom Events**:
+   - Go to GA4 Admin > Events
+   - Click "Create Event"
+   - Use dataLayer variable names as parameters
 
-Go to GA4 Admin > Events
-Click "Create Event"
-Use dataLayer variable names as parameters
-
-
-Example Event Configuration:
-
-javascript// Lead generation event
+2. **Example Event Configuration**:
+```javascript
+// Lead generation event
 gtag('event', 'generate_lead', {
   'lead_source': '{{gubagoo_lead_source}}',
   'vehicle_vin': '{{vehicle_vin}}',
   'lead_value': {{lead_value}}
 });
-Adobe Analytics
+```
+
+### Adobe Analytics
+
 Configure processing rules to map dataLayer events:
 
-Map gubagoo_* variables to eVars/props
-Set up custom success events for lead generation
-Create segments based on customer interaction patterns
+1. Map `gubagoo_*` variables to eVars/props
+2. Set up custom success events for lead generation
+3. Create segments based on customer interaction patterns
 
-🧪 Testing Checklist
-Gubagoo Testing:
+## 🧪 Testing Checklist
 
- Calculator loads and fires gubagoo_calculator_loaded
- Customer form submission fires generate_lead
- Payment selection fires gubagoo_payment_selected
- All customer data fields populated correctly
- No JavaScript errors in console
+### Gubagoo Testing:
+- [ ] Calculator loads and fires `gubagoo_calculator_loaded`
+- [ ] Customer form submission fires `generate_lead`
+- [ ] Payment selection fires `gubagoo_payment_selected`
+- [ ] All customer data fields populated correctly
+- [ ] No JavaScript errors in console
 
-XTime Testing:
+### XTime Testing:
+- [ ] Widget loads and fires `xtime_message`
+- [ ] Appointment steps tracked correctly
+- [ ] Dealer ID and appointment ID captured
+- [ ] Promotional tracking works (if applicable)
+- [ ] No duplicate events firing
 
- Widget loads and fires xtime_message
- Appointment steps tracked correctly
- Dealer ID and appointment ID captured
- Promotional tracking works (if applicable)
- No duplicate events firing
+## 🐛 Common Issues
 
-🐛 Common Issues
-Scripts Not Firing
-Problem: No events appearing in dataLayer
-Solution:
+### Scripts Not Firing
+**Problem**: No events appearing in dataLayer
+**Solution**: 
+- Check GTM tag triggers
+- Verify widgets are loading properly
+- Look for JavaScript errors in console
 
-Check GTM tag triggers
-Verify widgets are loading properly
-Look for JavaScript errors in console
+### Missing Customer Data
+**Problem**: Lead events fire but missing email/phone
+**Solution**:
+- Ensure customers complete contact forms
+- Check timing of script execution
+- Verify widget postMessage structure hasn't changed
 
-Missing Customer Data
-Problem: Lead events fire but missing email/phone
-Solution:
+### Duplicate Events
+**Problem**: Same event firing multiple times
+**Solution**:
+- Scripts include basic deduplication
+- Add additional deduplication logic if needed
+- Check for multiple script instances
 
-Ensure customers complete contact forms
-Check timing of script execution
-Verify widget postMessage structure hasn't changed
+### Cross-Domain Issues
+**Problem**: Events not capturing from widget iframes
+**Solution**:
+- Verify allowed origins configuration
+- Check browser security settings
+- Ensure widgets are from expected domains
 
-Duplicate Events
-Problem: Same event firing multiple times
-Solution:
+## 📈 Performance Considerations
 
-Scripts include basic deduplication
-Add additional deduplication logic if needed
-Check for multiple script instances
+### Script Loading
+- Scripts are lightweight and load asynchronously
+- No impact on page load speeds
+- Event listeners added after DOM ready
 
-Cross-Domain Issues
-Problem: Events not capturing from widget iframes
-Solution:
+### Data Volume
+- Events only fire during widget interactions
+- Minimal data storage impact
+- Consider data retention policies
 
-Verify allowed origins configuration
-Check browser security settings
-Ensure widgets are from expected domains
+## 🔐 Security & Privacy
 
-📈 Performance Considerations
-Script Loading
+### Data Handling
+- Scripts only capture data from designated widget origins
+- No sensitive data stored in scripts themselves
+- All PII handling follows standard web practices
 
-Scripts are lightweight and load asynchronously
-No impact on page load speeds
-Event listeners added after DOM ready
+### Compliance Requirements
+- Update privacy policy to cover enhanced tracking
+- Implement cookie consent if required
+- Document data processing activities
+- Regular compliance audits recommended
 
-Data Volume
+## 📞 Support
 
-Events only fire during widget interactions
-Minimal data storage impact
-Consider data retention policies
+### Troubleshooting Resources
+- Check vendor-specific README files
+- Review browser console for errors
+- Use GTM Preview mode for debugging
 
-🔐 Security & Privacy
-Data Handling
+### Community Support
+- Open GitHub issues for bugs
+- Submit feature requests
+- Share implementation experiences
 
-Scripts only capture data from designated widget origins
-No sensitive data stored in scripts themselves
-All PII handling follows standard web practices
+---
 
-Compliance Requirements
-
-Update privacy policy to cover enhanced tracking
-Implement cookie consent if required
-Document data processing activities
-Regular compliance audits recommended
-
-📞 Support
-Troubleshooting Resources
-
-Check vendor-specific README files
-Review browser console for errors
-Use GTM Preview mode for debugging
-
-Community Support
-
-Open GitHub issues for bugs
-Submit feature requests
-Share implementation experiences
-
-
-Next: Review privacy compliance requirements in PRIVACY-COMPLIANCE.md
+*Next: Review privacy compliance requirements in `PRIVACY-COMPLIANCE.md`*

@@ -36,11 +36,13 @@ Thank you for your interest in contributing! This project is built by automotive
 When adding support for a new automotive vendor:
 
 1. **Create vendor directory**:
+```
 scripts/
 └── new-vendor-name/
-├── enhanced-tracking.js
-├── README.md
-└── examples/
+    ├── enhanced-tracking.js
+    ├── README.md
+    └── examples/
+```
 
 2. **Required files**:
    - Main tracking script (`.js` file)
@@ -101,9 +103,13 @@ scripts/
     initTracking();
   }
 })();
-Documentation Standards
-README Structure for New Vendors:
-markdown# Vendor Name Enhanced Tracking
+```
+
+### Documentation Standards
+
+#### README Structure for New Vendors:
+```markdown
+# Vendor Name Enhanced Tracking
 
 Brief description of the vendor and what data is captured.
 
@@ -128,145 +134,138 @@ Privacy and compliance notes
 
 ## 🐛 Troubleshooting
 Common issues and solutions
-🧪 Testing Requirements
-Before Submitting
+```
 
- Test script in multiple browsers (Chrome, Firefox, Safari, Edge)
- Verify events fire correctly in GTM Preview mode
- Check browser console for JavaScript errors
- Test on mobile devices
- Validate with different widget configurations
+## 🧪 Testing Requirements
 
-Test Scenarios
+### Before Submitting
+- [ ] Test script in multiple browsers (Chrome, Firefox, Safari, Edge)
+- [ ] Verify events fire correctly in GTM Preview mode
+- [ ] Check browser console for JavaScript errors
+- [ ] Test on mobile devices
+- [ ] Validate with different widget configurations
 
-Widget Loading: Script initializes when widget loads
-User Interaction: Events fire during customer interactions
-Data Accuracy: Captured data matches expected format
-Error Handling: Script handles missing elements gracefully
-Performance: No impact on page load times
+### Test Scenarios
+1. **Widget Loading**: Script initializes when widget loads
+2. **User Interaction**: Events fire during customer interactions
+3. **Data Accuracy**: Captured data matches expected format
+4. **Error Handling**: Script handles missing elements gracefully
+5. **Performance**: No impact on page load times
 
-🔒 Privacy & Security
-Privacy Requirements
+## 🔒 Privacy & Security
 
-Only collect data necessary for automotive business purposes
-Include appropriate consent mechanisms
-Follow data minimization principles
-Document what PII is collected
+### Privacy Requirements
+- Only collect data necessary for automotive business purposes
+- Include appropriate consent mechanisms
+- Follow data minimization principles
+- Document what PII is collected
 
-Security Considerations
+### Security Considerations
+- Never hardcode sensitive information
+- Validate all input data
+- Use secure communication methods
+- Follow OWASP security guidelines
 
-Never hardcode sensitive information
-Validate all input data
-Use secure communication methods
-Follow OWASP security guidelines
+## 📋 Pull Request Process
 
-📋 Pull Request Process
-Before Submitting
-
-Create descriptive commit messages:
-
+### Before Submitting
+1. **Create descriptive commit messages**:
+```
 Add XYZ Vendor tracking support
 
 - Captures lead generation events
 - Includes appointment booking data
 - Adds comprehensive error handling
 - Updates documentation with implementation guide
+```
 
-Update relevant documentation:
+2. **Update relevant documentation**:
+   - Main README.md (add vendor to supported list)
+   - Implementation guides
+   - Privacy compliance notes
 
-Main README.md (add vendor to supported list)
-Implementation guides
-Privacy compliance notes
+3. **Test thoroughly**:
+   - Multiple browsers and devices
+   - Different website platforms
+   - Various widget configurations
 
+### PR Checklist
+- [ ] **Code Quality**: Follows style guidelines and best practices
+- [ ] **Documentation**: Comprehensive README and examples included
+- [ ] **Testing**: Verified to work across platforms
+- [ ] **Privacy**: Compliant with automotive privacy standards
+- [ ] **Compatibility**: Works with existing scripts without conflicts
 
-Test thoroughly:
+### Review Process
+1. **Automated checks**: Code style and basic validation
+2. **Community review**: Other contributors test and provide feedback
+3. **Maintainer approval**: Final review by project maintainers
+4. **Merge**: Integration into main branch
 
-Multiple browsers and devices
-Different website platforms
-Various widget configurations
+## 🌟 Recognition
 
-
-
-PR Checklist
-
- Code Quality: Follows style guidelines and best practices
- Documentation: Comprehensive README and examples included
- Testing: Verified to work across platforms
- Privacy: Compliant with automotive privacy standards
- Compatibility: Works with existing scripts without conflicts
-
-Review Process
-
-Automated checks: Code style and basic validation
-Community review: Other contributors test and provide feedback
-Maintainer approval: Final review by project maintainers
-Merge: Integration into main branch
-
-🌟 Recognition
-Contributors
+### Contributors
 All contributors are recognized in:
+- Repository contributor list
+- Release notes for significant contributions
+- Special recognition for major feature additions
 
-Repository contributor list
-Release notes for significant contributions
-Special recognition for major feature additions
-
-Automotive Industry Impact
+### Automotive Industry Impact
 Your contributions help:
+- Improve dealership customer tracking
+- Enhance automotive marketing effectiveness
+- Build better customer experiences
+- Share knowledge across the industry
 
-Improve dealership customer tracking
-Enhance automotive marketing effectiveness
-Build better customer experiences
-Share knowledge across the industry
+## 🐛 Reporting Issues
 
-🐛 Reporting Issues
-Bug Reports
+### Bug Reports
 When reporting bugs, include:
+- **Browser and version**
+- **Website platform** (WordPress, custom, etc.)
+- **Vendor widget version**
+- **Error messages** from browser console
+- **Steps to reproduce**
+- **Expected vs actual behavior**
 
-Browser and version
-Website platform (WordPress, custom, etc.)
-Vendor widget version
-Error messages from browser console
-Steps to reproduce
-Expected vs actual behavior
-
-Feature Requests
+### Feature Requests
 For new features, describe:
+- **Business use case** and value
+- **Target automotive vendor**
+- **Data collection requirements**
+- **Implementation complexity estimate**
 
-Business use case and value
-Target automotive vendor
-Data collection requirements
-Implementation complexity estimate
+## 💬 Community Guidelines
 
-💬 Community Guidelines
-Communication
+### Communication
+- **Be respectful** and professional
+- **Focus on automotive industry needs**
+- **Share knowledge and experiences**
+- **Help other dealership professionals**
 
-Be respectful and professional
-Focus on automotive industry needs
-Share knowledge and experiences
-Help other dealership professionals
+### Collaboration
+- **Ask questions** if implementation is unclear
+- **Offer help** to other contributors
+- **Share testing results** and feedback
+- **Suggest improvements** constructively
 
-Collaboration
+## 📞 Getting Help
 
-Ask questions if implementation is unclear
-Offer help to other contributors
-Share testing results and feedback
-Suggest improvements constructively
+### Resources
+- **GitHub Discussions**: Community Q&A and support
+- **Issues**: Bug reports and feature requests  
+- **Documentation**: Implementation guides and examples
+- **Code Examples**: Real-world usage scenarios
 
-📞 Getting Help
-Resources
+### Contact
+- Open a GitHub Issue for bugs or questions
+- Start a Discussion for general questions
+- Tag maintainers for urgent issues
 
-GitHub Discussions: Community Q&A and support
-Issues: Bug reports and feature requests
-Documentation: Implementation guides and examples
-Code Examples: Real-world usage scenarios
+---
 
-Contact
+## 🏆 Thank You!
 
-Open a GitHub Issue for bugs or questions
-Start a Discussion for general questions
-Tag maintainers for urgent issues
-
-
-🏆 Thank You!
 Your contributions make this project valuable for automotive dealerships everywhere. Together, we're improving customer tracking and analytics across the automotive industry.
-Happy coding! 🚗💻
+
+**Happy coding!** 🚗💻
