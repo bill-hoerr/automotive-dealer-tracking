@@ -25,6 +25,7 @@ Third-party vendors like Gubagoo and XTime send limited data to your analytics. 
 
 - **Gubagoo** - Payment calculator and lead tracking
 - **XTime** - Service scheduling tracking
+- **CarNow** - Digital retail and lead generation tracking
 
 ## 🚀 Quick Start
 
